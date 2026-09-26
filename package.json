@@ -1,0 +1,9 @@
+{
+  "name": "md2wechat",
+  "version": "0.1.0",
+  "private": true,
+  "description": "墨排 · Markdown 转微信公众号排版引擎",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
