@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "墨排 · Markdown 转公众号排版",
+  "version": "0.1.0",
+  "description": "在公众号后台直接渲染 Markdown：粘贴 Markdown，一键换成精美排版。",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "墨排"
+  },
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" },
+  "permissions": ["clipboardWrite", "storage", "scripting"],
+  "host_permissions": ["https://mp.weixin.qq.com/*"]
+}
