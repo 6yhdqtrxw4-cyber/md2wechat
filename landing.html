@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>墨排 — Markdown 一键转公众号排版 | 免费微信公众号排版工具</title>
+<meta name="description" content="墨排是免费的 Markdown 转公众号排版工具：左侧写 Markdown，右侧实时预览微信效果，一键复制带样式富文本。内置代码高亮与多套精美主题，公众号写作者的排版神器。"/>
+<meta name="keywords" content="markdown转公众号,公众号排版工具,markdown排版,微信公众号编辑器,md2wechat,markdown 复制到公众号"/>
+<meta property="og:title" content="墨排 — Markdown 一键转公众号排版"/>
+<meta property="og:description" content="写 Markdown 的人不该浪费时间排版。免费、无需注册、一键复制。"/>
+<meta property="og:type" content="website"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "墨排",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+  "description": "免费的 Markdown 转微信公众号排版工具，支持代码高亮与多主题。"
+}
+</script>
+<style>
+  :root { --accent:#1e6ef5; --text:#1f2329; --muted:#646a73; --bg:#fff; --soft:#f5f7fa; --border:#e8eaee; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:"PingFang SC","Microsoft YaHei",sans-serif; color:var(--text); background:var(--bg); line-height:1.7; }
+  a { color:var(--accent); text-decoration:none; }
+  .wrap { max-width:960px; margin:0 auto; padding:0 20px; }
+
+  nav { display:flex; align-items:center; gap:16px; padding:14px 0; }
+  nav .logo { font-size:19px; font-weight:700; }
+  nav .logo em { color:var(--accent); font-style:normal; }
+  nav .spacer { flex:1; }
+  nav a.btn { padding:8px 18px; border-radius:8px; background:var(--accent); color:#fff; font-weight:600; font-size:14px; }
+
+  .hero { text-align:center; padding:72px 20px 48px; background:linear-gradient(180deg,#eef4ff 0%,#fff 100%); }
+  .hero h1 { font-size:38px; line-height:1.35; margin-bottom:16px; }
+  .hero h1 em { color:var(--accent); font-style:normal; }
+  .hero p.sub { font-size:17px; color:var(--muted); max-width:560px; margin:0 auto 28px; }
+  .hero .cta { display:inline-block; padding:14px 40px; border-radius:10px; background:var(--accent); color:#fff; font-size:17px; font-weight:700; }
+  .hero .note { margin-top:14px; font-size:13px; color:var(--muted); }
+  .badges { margin-top:22px; display:flex; gap:18px; justify-content:center; font-size:13.5px; color:var(--muted); flex-wrap:wrap; }
+  .badges span::before { content:"✓ "; color:#2e9e5b; font-weight:700; }
+
+  section.block { padding:56px 0; }
+  section.block h2 { text-align:center; font-size:26px; margin-bottom:36px; }
+  .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
+  .card { border:1px solid var(--border); border-radius:12px; padding:24px; background:#fff; }
+  .card .icon { font-size:26px; margin-bottom:10px; }
+  .card h3 { font-size:16.5px; margin-bottom:8px; }
+  .card p { font-size:14px; color:var(--muted); }
+
+  .themes { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+  .theme-demo { width:220px; border:1px solid var(--border); border-radius:10px; overflow:hidden; font-size:12.5px; }
+  .theme-demo .cap { padding:8px 12px; background:var(--soft); color:var(--muted); font-size:12px; }
+
+  .faq details { border-bottom:1px solid var(--border); padding:16px 4px; }
+  .faq summary { cursor:pointer; font-weight:600; font-size:15.5px; }
+  .faq details p { margin-top:10px; color:var(--muted); font-size:14.5px; }
+
+  footer { text-align:center; padding:36px 20px; color:var(--muted); font-size:13px; background:var(--soft); }
+</style>
+</head>
+<body>
+<nav class="wrap">
+  <div class="logo">墨<em>排</em></div>
+  <div class="spacer"></div>
+  <a href="index.html">打开工具 →</a>
+  <a href="index.html" class="btn">免费使用</a>
+</nav>
+
+<div class="hero">
+  <h1>写 Markdown 的人<br/>不该浪费时间<em>排版</em></h1>
+  <p class="sub">墨排把你的 Markdown 一键变成公众号可直接粘贴的精美推文。无需注册、免费使用、代码高亮、六套主题。</p>
+  <a class="cta" href="index.html">立即排版 →</a>
+  <div class="note">打开即用，无需注册 · 数据只在你浏览器里，不上传</div>
+  <div class="badges">
+    <span>免费使用</span><span>一键复制到公众号</span><span>代码语法高亮</span><span>手机 / 电脑通用</span>
+  </div>
+</div>
+
+<section class="block wrap">
+  <h2>为什么是墨排？</h2>
+  <div class="features">
+    <div class="card"><div class="icon">⚡</div><h3>30 秒完成排版</h3><p>左边写 Markdown，右边实时预览微信真实效果。写完一键复制，粘贴进公众号后台样式原样保留。</p></div>
+    <div class="card"><div class="icon">🎨</div><h3>六套精心调校的主题</h3><p>科技蓝、极简灰、森林绿免费使用；商务深蓝、国风朱砂、暗夜极客随主题包解锁，一键换肤全文生效。</p></div>
+    <div class="card"><div class="icon">💻</div><h3>代码高亮不糊</h3><p>技术博主友好：内置语法高亮，深色代码块，粘贴后样式不丢失，不再是一坨灰字。</p></div>
+    <div class="card"><div class="icon">🔒</div><h3>隐私安全</h3><p>纯前端实现，文章内容不出你的浏览器。未写完的稿子、未发布的选题，谁都看不到。</p></div>
+  </div>
+</section>
+
+<section class="block wrap faq">
+  <h2>常见问题</h2>
+  <details open>
+    <summary>复制到公众号后样式会丢吗？</summary>
+    <p>不会。墨排生成的是微信原生支持的内联样式富文本，通过剪贴板直接粘贴到公众号编辑器，样式 100% 保留。</p>
+  </details>
+  <details>
+    <summary>免费版和付费主题包有什么区别？</summary>
+    <p>三款基础主题永久免费，够大多数人日常使用。主题包（¥19.9）解锁全部六套主题，一次付费永久使用，后续新主题免费更新。</p>
+  </details>
+  <details>
+    <summary>需要注册吗？我的文章会被上传吗？</summary>
+    <p>不需要注册，打开即用。所有渲染都在你的浏览器本地完成，文章数据不会上传到任何服务器。</p>
+  </details>
+  <details>
+    <summary>支持哪些 Markdown 语法？</summary>
+    <p>标题（H1–H3）、加粗、斜体、行内代码、代码块（带语法高亮）、有序/无序列表、引用、表格、图片、链接、分割线。</p>
+  </details>
+</section>
+
+<footer>
+  墨排 · Markdown 转公众号排版引擎 —— 用写代码的方式写文章
+</footer>
+</body>
+</html>
