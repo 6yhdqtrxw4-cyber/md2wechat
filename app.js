@@ -109,8 +109,8 @@ document.getElementById('btn-unlock').onclick = async () => {
   btn.textContent = '解锁主题包';
   if (!ok) { unlockErr.textContent = '解锁码无效，请检查后重试'; return; }
   localStorage.setItem(UNLOCK_KEY, code.trim().toUpperCase());
-  unlockOk.textContent = '✅ 解锁成功！6 套主题全部可用';
-  toast('🎉 解锁成功！6 套主题已全部可用');
+  unlockOk.textContent = '✅ 解锁成功！15 套主题全部可用';
+  toast('🎉 解锁成功！15 套主题已全部可用');
   buildThemeBar();
   setTimeout(() => {
     modalMask.classList.remove('show');
