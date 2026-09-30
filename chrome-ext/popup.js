@@ -122,7 +122,7 @@ document.getElementById('btn-unlock').onclick = () => {
   if (want && THEMES[want]) chrome.storage.local.set({ theme: want });
   closeUnlock();
   setMsg('');
-  notify('🎉 解锁成功！6 套主题全部可用');
+  notify('🎉 解锁成功！15 套主题全部可用');
 };
 
 document.getElementById('copy').onclick = async () => {
