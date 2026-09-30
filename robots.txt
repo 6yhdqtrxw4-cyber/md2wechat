@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://REPLACE_DOMAIN/sitemap.xml
+Sitemap: https://6yhdqtrxw4-cyber.github.io/md2wechat/sitemap.xml
