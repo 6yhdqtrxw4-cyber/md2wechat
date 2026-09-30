@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "墨排 · Markdown 转公众号排版",
   "version": "0.2.0",
-  "description": "粘贴 Markdown，一键换成可粘贴进公众号的精美排版。六套主题、代码高亮，纯本地处理，文章不上传。",
+  "description": "粘贴 Markdown，一键换成可粘贴进公众号的精美排版。十五套主题、代码高亮，纯本地处理，文章不上传。",
   "action": {
     "default_popup": "popup.html",
     "default_title": "墨排"
