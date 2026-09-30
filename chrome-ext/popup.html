@@ -22,6 +22,7 @@
   #qr-box { border:1px dashed #e4e6eb; border-radius:10px; padding:10px; display:flex; align-items:center; justify-content:center; min-height:86px; margin-bottom:10px; }
   #qr-box img { width:120px; height:120px; border-radius:6px; }
   #qr-ph { font-size:11.5px; color:#8a8f99; text-align:center; line-height:1.9; }
+  #buy { display:none; text-align:center; font-size:12.5px; color:#1e6ef5; text-decoration:none; font-weight:600; margin:0 0 10px; }
   #code { width:100%; box-sizing:border-box; padding:9px 10px; border:1px solid #e4e6eb; border-radius:8px; font-size:12.5px; text-align:center; font-family:Consolas,Menlo,monospace; letter-spacing:.04em; }
   #code:focus { outline:none; border-color:#1e6ef5; }
   #msg { font-size:11.5px; min-height:15px; margin:7px 0 0; text-align:center; }
@@ -43,6 +44,7 @@
     <img id="qr" alt="微信收款码" style="display:none"/>
     <div id="qr-ph">微信收款码即将上线<br/>当前可通过作者处购买解锁码</div>
   </div>
+  <a id="buy" target="_blank" rel="noopener">在爱发电购买解锁码 →</a>
   <input id="code" placeholder="输入解锁码 MQ-XXXX-XXXX-XXXX-XXXX" maxlength="23"/>
   <div class="row">
     <button class="primary" id="btn-unlock">解锁主题包</button>
