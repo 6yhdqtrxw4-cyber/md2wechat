@@ -12,6 +12,12 @@ const msg = document.getElementById('msg');
 const qrImg = document.getElementById('qr');
 const qrPh = document.getElementById('qr-ph');
 
+/* 购买入口。把爱发电商品链接填到这里即可启用（留空则显示「即将上线」占位文案）。
+ * 爱发电支持数字商品 + 自动随机发放激活码，收款/发货可全自动，无需人工发码。
+ * 必须声明在使用它的 initBuy() 之前，否则会触发 TDZ ReferenceError 并让整个脚本中断
+ * （曾实测导致主题下拉变空白）。 */
+const PURCHASE_URL = '';
+
 /* 收款码是「可选资源」：只有文件真的存在才引用它，
  * 否则扩展包里会长期存在一个 404 引用（每次打开弹窗都会报错）。
  * 另外 MV3 的 CSP 禁止内联事件处理器（onerror="..."），必须用 addEventListener。 */
@@ -23,6 +29,16 @@ qrImg.addEventListener('error', showQrFallback);
     if (r.ok) { qrPh.style.display = 'none'; qrImg.style.display = 'block'; qrImg.src = url; }
     else showQrFallback();
   }).catch(showQrFallback);
+})();
+
+/* 已配置购买链接时展示出来（替代"即将上线"占位） */
+(function initBuy() {
+  if (!PURCHASE_URL) return;
+  const a = document.getElementById('buy');
+  if (!a) return;
+  a.href = PURCHASE_URL;
+  a.style.display = 'block';
+  qrPh.innerHTML = '点击下方链接购买解锁码<br/>付款后自动发放';
 })();
 
 const DEFAULT_TIP = '复制后到公众号编辑器直接粘贴即可；「填入」仅在你已打开公众号后台页面时可用。';
