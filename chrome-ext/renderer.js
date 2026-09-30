@@ -60,6 +60,52 @@ const THEMES = {
     name: '暗夜极客', free: false,
     desc: '科技媒体 / 暗色代码风',
     styles: (() => { const s = base('#e6a23c', '#1d1f24'); s.section = `padding:20px 16px;background:#1d1f24;font-size:15px;color:#c8c9cc;line-height:1.75;letter-spacing:.03em;font-family:${F.song};`; s.h1 = `font-size:22px;font-weight:bold;color:#e6a23c;border-bottom:2px solid #e6a23c;padding:0 0 10px;margin:0 0 20px;font-family:${F.hei};`; s.h2 = `font-size:19px;font-weight:bold;color:#e6a23c;border-left:4px solid #e6a23c;padding-left:10px;margin:28px 0 14px;font-family:${F.hei};`; s.strong = `color:#ffffff;font-weight:bold;`; s.blockquote = `margin:16px 0;padding:12px 16px;background:#26282e;border-left:4px solid #e6a23c;color:#9a9ba0;font-size:14px;`; s.code = `font-family:Consolas,Menlo,monospace;font-size:13px;background:#26282e;color:#e6a23c;padding:2px 6px;border-radius:4px;`; s.hr = `border:none;border-top:1px dashed #444;margin:24px 0;`; return s; })()
+  },
+  // —— 新增主题（第 9 回合：把主题包从 3 套扩到 12 套，提升 ¥19.9 的价值感）——
+  sunset: {
+    name: '日落橙', free: false,
+    desc: '温暖醒目，活动与种草类推文',
+    styles: base('#e8590c', '#fffaf5')
+  },
+  violet: {
+    name: '极客紫', free: false,
+    desc: '浓郁个性，观点与技术向',
+    styles: (() => { const s = base('#7048e8', '#ffffff'); s.h1 = `font-size:22px;font-weight:bold;color:#5f3dc4;border-bottom:2px solid #7048e8;padding:0 0 10px;margin:0 0 20px;font-family:${F.hei};`; return s; })()
+  },
+  mint: {
+    name: '薄荷青', free: false,
+    desc: '清爽通透，适合轻盈短文',
+    styles: base('#0ca678', '#f4fdfa')
+  },
+  rose: {
+    name: '玫瑰粉', free: false,
+    desc: '柔和女性向，生活方式与情感',
+    styles: (() => { const s = base('#c2255c', '#fff7fa'); s.blockquote = `margin:16px 0;padding:12px 16px;background:#fff0f5;border-left:4px solid #c2255c;color:#7a4a5c;font-size:14px;`; return s; })()
+  },
+  gold: {
+    name: '墨黑鎏金', free: false,
+    desc: '高端质感，品牌与年度总结',
+    styles: (() => { const s = base('#b8860b', '#141414'); s.section = `padding:20px 16px;background:#141414;font-size:15px;color:#d8d4cc;line-height:1.75;letter-spacing:.03em;font-family:${F.song};`; s.h1 = `font-size:22px;font-weight:bold;color:#e8c86a;border-bottom:2px solid #b8860b;padding:0 0 10px;margin:0 0 20px;font-family:${F.hei};`; s.h2 = `font-size:19px;font-weight:bold;color:#e8c86a;border-left:4px solid #b8860b;padding-left:10px;margin:28px 0 14px;font-family:${F.hei};`; s.strong = `color:#ffffff;font-weight:bold;`; s.blockquote = `margin:16px 0;padding:12px 16px;background:#1f1d18;border-left:4px solid #b8860b;color:#a89f8c;font-size:14px;`; s.hr = `border:none;border-top:1px dashed #4a4438;margin:24px 0;`; return s; })()
+  },
+  slate: {
+    name: '学院灰蓝', free: false,
+    desc: '严谨克制，报告与干货长文',
+    styles: base('#2c3e50', '#ffffff')
+  },
+  vintage: {
+    name: '复古报纸', free: false,
+    desc: '怀旧纸质，故事与史记',
+    styles: (() => { const s = base('#6b4f2a', '#faf6ee'); s.section = `padding:20px 16px;background:#faf6ee;font-size:15px;color:#4a4034;line-height:1.8;letter-spacing:.03em;font-family:${F.song};`; return s; })()
+  },
+  neon: {
+    name: '赛博霓虹', free: false,
+    desc: '强对比，科技与游戏内容',
+    styles: (() => { const s = base('#00d1b2', '#0b0f1a'); s.section = `padding:20px 16px;background:#0b0f1a;font-size:15px;color:#c9d4e6;line-height:1.75;letter-spacing:.03em;font-family:${F.song};`; s.h1 = `font-size:22px;font-weight:bold;color:#00d1b2;border-bottom:2px solid #00d1b2;padding:0 0 10px;margin:0 0 20px;font-family:${F.hei};`; s.h2 = `font-size:19px;font-weight:bold;color:#7b61ff;border-left:4px solid #7b61ff;padding-left:10px;margin:28px 0 14px;font-family:${F.hei};`; s.strong = `color:#ffffff;font-weight:bold;`; s.blockquote = `margin:16px 0;padding:12px 16px;background:#141c2e;border-left:4px solid #00d1b2;color:#8fa3bf;font-size:14px;`; s.hr = `border:none;border-top:1px dashed #2a3a55;margin:24px 0;`; return s; })()
+  },
+  lemon: {
+    name: '柠檬黄', free: false,
+    desc: '轻快活泼，清单与日常分享',
+    styles: base('#c9a227', '#fffdf2')
   }
 };
 
