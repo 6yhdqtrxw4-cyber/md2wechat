@@ -27,29 +27,100 @@ const money = async () => {
 *试试右上角的「主题切换」，锁住的 🔒 是付费主题——这就是本产品的商业模式。*`;
 
 let currentTheme = 'tech';
+let pendingTheme = null;
 
 const editor = document.getElementById('editor');
 const preview = document.getElementById('preview');
 const themeBar = document.getElementById('theme-bar');
 const modalMask = document.getElementById('modal-mask');
+const unlockInput = document.getElementById('unlock-input');
+const unlockErr = document.getElementById('unlock-err');
+const unlockOk = document.getElementById('unlock-ok');
+
+const UNLOCK_KEY = 'mopai_unlock_v1';
+
+// 已解锁判定（本地持久化）
+function isUnlocked() { return !!localStorage.getItem(UNLOCK_KEY); }
 
 // 初始化主题选择条
-Object.keys(THEMES).forEach(key => {
-  const th = THEMES[key];
-  const chip = document.createElement('button');
-  chip.className = 'chip' + (key === currentTheme ? ' active' : '') + (th.free ? '' : ' locked');
-  chip.textContent = th.name;
-  chip.title = th.desc;
-  chip.onclick = () => {
-    if (!th.free) { modalMask.classList.add('show'); return; }
-    currentTheme = key;
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    render();
-  };
-  themeBar.appendChild(chip);
-});
+function buildThemeBar() {
+  themeBar.innerHTML = '';
+  Object.keys(THEMES).forEach(key => {
+    const th = THEMES[key];
+    const chip = document.createElement('button');
+    chip.className = 'chip' + (key === currentTheme ? ' active' : '') + (th.free || isUnlocked() ? '' : ' locked');
+    chip.textContent = th.name;
+    chip.title = th.desc;
+    chip.onclick = () => {
+      if (th.free) {
+        currentTheme = key;
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        render();
+      } else if (isUnlocked()) {
+        currentTheme = key;
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        render();
+      } else {
+        pendingTheme = key;
+        openPayModal();
+      }
+    };
+    themeBar.appendChild(chip);
+  });
+}
+
+function openPayModal() {
+  unlockErr.textContent = '';
+  unlockOk.textContent = '';
+  unlockInput.value = '';
+  modalMask.classList.add('show');
+  setTimeout(() => unlockInput.focus(), 60);
+}
+
 modalMask.onclick = e => { if (e.target === modalMask) modalMask.classList.remove('show'); };
+
+// 解锁校验：输入码 → 大写规范化 → SHA-256 → 与 keys.json 哈希表比对
+async function verifyUnlockCode(code) {
+  const norm = code.trim().toUpperCase().replace(/\s+/g, '');
+  if (!/^MQ-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}-[A-Z2-9]{4}$/.test(norm)) return false;
+  try {
+    const r = await fetch('keys.json', { cache: 'no-store' });
+    if (!r.ok) return false;
+    const hashes = await r.json();
+    const h = sha256(norm);
+    return Array.isArray(hashes) && hashes.includes(h);
+  } catch (e) {
+    return false;
+  }
+}
+
+document.getElementById('btn-unlock').onclick = async () => {
+  unlockErr.textContent = '';
+  unlockOk.textContent = '';
+  const btn = document.getElementById('btn-unlock');
+  const code = unlockInput.value;
+  if (!code) { unlockErr.textContent = '请先输入解锁码'; return; }
+  btn.disabled = true;
+  btn.textContent = '校验中…';
+  const ok = await verifyUnlockCode(code);
+  btn.disabled = false;
+  btn.textContent = '解锁主题包';
+  if (!ok) { unlockErr.textContent = '解锁码无效，请检查后重试'; return; }
+  localStorage.setItem(UNLOCK_KEY, code.trim().toUpperCase());
+  unlockOk.textContent = '✅ 解锁成功！6 套主题全部可用';
+  toast('🎉 解锁成功！6 套主题已全部可用');
+  buildThemeBar();
+  setTimeout(() => {
+    modalMask.classList.remove('show');
+    if (pendingTheme) {
+      const chip = themeBar.querySelectorAll('.chip')[Object.keys(THEMES).indexOf(pendingTheme)];
+      if (chip) chip.click();
+      pendingTheme = null;
+    }
+  }, 900);
+};
 
 function render() {
   const md = editor.value;
@@ -101,4 +172,5 @@ document.getElementById('btn-html').onclick = () => {
 };
 
 editor.value = SAMPLE;
+buildThemeBar();
 render();
